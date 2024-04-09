@@ -31,14 +31,14 @@ $result = mysqli_query($kobling, $sql);
 if(mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
     if($row['username'] === $brukernavn && $row['password'] === $passord) {
-        echo "Innlogget";
+        echo "You are logged in";
         $_SESSION['username'] = $row['username'];
         $_SESSION['id'] = $row['id'];
         header("Location: home.php");
         exit();
     }
     else{
-        header("Location: index.php?error=Ugyldig brukernavn eller passord!");
+        header("Location: index.php?error=Invalid username or password!");
         exit();
     }
 }
